@@ -18,5 +18,13 @@
     <div id="card">
         <h2>разочаровывать</h2>
     </div>
+    <script>
+        function res(){
+            var card = document.getElementById("card");
+            var size = Math.min(window.innerWidth, window.innerHeight);
+            card.style.width = size+"px";
+            card.style.height = size+"px";
+        }
+    </script>
 </body>
 </html>
