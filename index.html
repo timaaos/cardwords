@@ -41,13 +41,24 @@
     <div id="container">
         <div id="card">
             <div id="cardcontent">
-                <h2>разочаровывать</h2><br>
-                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+                <h2 id="cardtitle">разочаровывать</h2><br>
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="cardinput" />
             </div>
         </div>
     </div>
     <script>
-
+        var data = {
+            pairs: [
+                {
+                    "first": "разочаровывать",
+                    "second": "to disappoint"
+                },
+                {
+                    "first": "после, потом",
+                    "second": "afterwards"
+                }
+            ]
+        };
         function res(){
             var card = document.getElementById("card");
             var size = Math.min(window.innerWidth, window.innerHeight)-15;
@@ -58,6 +69,30 @@
             if (window.matchMedia('(display-mode: standalone)').matches) {
                 document.getElementById("pwapopup").style.display = "none";
             }
+        }
+        function showCard(card){
+            document.getElementById("cardtitle").innerText = card.title;
+        }
+        function createCardsFromPair(pair) {
+            return [{
+                "title": pair.first,
+                "answer": pair.second
+            },
+            {
+                "title": pair.second,
+                "card": pair.first
+            }]
+        }
+        function gameLoop(){
+            var gameData = {
+                "cards": createCardsFromPair(data.pairs[0]),
+                "currentIdx": -1,
+                "callback": function(){
+                    gameData.currentIdx += 1;
+                    showCard(gameData.cards[gameData.currentIdx]);
+                }
+            };
+            gameData.callback();
         }
         pwapopup();
         res();
