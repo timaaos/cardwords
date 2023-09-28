@@ -24,10 +24,20 @@
             justify-content: center;
             align-items: center;
         }
+        #pwapopup {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: fit-content;
+        }
     </style>
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
+    <div id="pwapopup">
+        <p>Пожалуйста, добавь этот сайт на рабочий стол, чтобы он работал как приложение (PWA)</p>
+    </div>
     <div id="container">
         <div id="card">
             <div id="cardcontent">
@@ -41,6 +51,11 @@
             var size = Math.min(window.innerWidth, window.innerHeight)-15;
             card.style.width = size+"px";
             card.style.height = size+"px";
+        }
+        function modepopup(){
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                document.getElementById("pwapopup").style.display = "hidden";
+            }
         }
         res();
         window.onresize = function(event){
