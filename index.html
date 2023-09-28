@@ -52,11 +52,12 @@
             card.style.width = size+"px";
             card.style.height = size+"px";
         }
-        function modepopup(){
+        function pwapopup(){
             if (window.matchMedia('(display-mode: standalone)').matches) {
                 document.getElementById("pwapopup").style.display = "hidden";
             }
         }
+        pwapopup();
         res();
         window.onresize = function(event){
             res();
