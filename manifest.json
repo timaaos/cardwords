@@ -1,3 +1,5 @@
 {
-    "name": "CardWords"
+    "name": "CardWords",
+    "display": "standalone",
+    "id": "cardwords"
 }
