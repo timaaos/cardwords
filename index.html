@@ -12,16 +12,22 @@
             border-radius: 10%;
             background-color: white;
         }
+        #cardcontent {
+            margin-right: auto;
+            margin-left: auto;
+        }
     </style>
 </head>
 <body>
     <div id="card">
-        <h2>разочаровывать</h2>
+        <div id="cardcontent">
+            <h2>to disappoint</h2>
+        </div>
     </div>
     <script>
         function res(){
             var card = document.getElementById("card");
-            var size = Math.min(window.innerWidth, window.innerHeight);
+            var size = Math.min(window.innerWidth, window.innerHeight)-15;
             card.style.width = size+"px";
             card.style.height = size+"px";
         }
