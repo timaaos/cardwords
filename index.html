@@ -25,6 +25,10 @@
             card.style.width = size+"px";
             card.style.height = size+"px";
         }
+        res();
+        window.onresize = function(event){
+            res();
+        }
     </script>
 </body>
 </html>
