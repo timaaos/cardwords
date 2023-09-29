@@ -61,7 +61,7 @@
             deck: function(){
                 var d = [];
                 for (const pair in data.pairs) {
-                    d = d.concat(createCardsFromPair(pair));
+                    d.concat(createCardsFromPair(pair));
                 }
                 return d;
             }
