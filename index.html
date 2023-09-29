@@ -60,12 +60,10 @@
             ],
             deck: function(){
                 var d = [];
-                for (const pair in data.pairs) {
+                data.pairs.forEach((pair) => {
                     var a = createCardsFromPair(pair);
-                    console.log(a);
                     d += a;
-                }
-                console.log(d);
+                });
                 return d;
             }
         };
