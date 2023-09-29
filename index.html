@@ -48,16 +48,7 @@
     </div>
     <script>
         var data = {
-            pairs: [
-                {
-                    "first": "разочаровывать",
-                    "second": "to disappoint"
-                },
-                {
-                    "first": "после, потом",
-                    "second": "afterwards"
-                }
-            ],
+            pairs: [["разочаровывать", "to disappoint"],["после, потом","afterwards"]],
             deck: function(){
                 var d = [];
                 data.pairs.forEach((pair) => {
@@ -83,12 +74,12 @@
         }
         function createCardsFromPair(pair) {
             return [{
-                "title": pair.first,
-                "answer": pair.second
+                "title": pair[0],
+                "answer": pair[1]
             },
             {
-                "title": pair.second,
-                "card": pair.first
+                "title": pair[1],
+                "card": pair[0]
             }]
         }
         function gameLoop(){
