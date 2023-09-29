@@ -49,15 +49,16 @@
     <script>
         var data = {
             pairs: [["разочаровывать", "to disappoint"],["после, потом","afterwards"]],
-            deck: function(){
-                var d = [];
-                data.pairs.forEach((pair) => {
-                    var a = createCardsFromPair(pair);
-                    d = d.concat(a);
-                });
-                return d;
-            }
+            mode: {"pair_first_card": "input", "pair_second_card": "select"}
         };
+        function deckFromData(dat){
+            var d = [];
+            dat.pairs.forEach((pair) => {
+                var a = createCardsFromPair(pair, dat.mode);
+                d = d.concat(a);
+            });
+            return d;
+        }
         function res(){
             var card = document.getElementById("card");
             var size = Math.min(window.innerWidth, window.innerHeight)-15;
@@ -72,7 +73,7 @@
         function showCard(card){
             document.getElementById("cardtitle").innerText = card.title;
         }
-        function createCardsFromPair(pair) {
+        function createCardsFromPair(pair, mode) {
             return [{
                 "title": pair[0],
                 "answer": pair[1]
@@ -84,7 +85,7 @@
         }
         function gameLoop(){
             var gameData = {
-                "cards": data.deck(),
+                "cards": deckFromData(data),
                 "currentIdx": -1,
                 "callback": function(){
                     gameData.currentIdx += 1;
