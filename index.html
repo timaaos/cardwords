@@ -57,7 +57,13 @@
                     "first": "после, потом",
                     "second": "afterwards"
                 }
-            ]
+            ],
+            deck: function(){
+                var d = [];
+                for (const pair in data.pairs) {
+                    d = d.concat(createCardsFromPair(pair));
+                }
+            }
         };
         function res(){
             var card = document.getElementById("card");
@@ -85,7 +91,7 @@
         }
         function gameLoop(){
             var gameData = {
-                "cards": createCardsFromPair(data.pairs[0]),
+                "cards": data.deck(),
                 "currentIdx": -1,
                 "callback": function(){
                     gameData.currentIdx += 1;
