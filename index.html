@@ -61,7 +61,9 @@
             deck: function(){
                 var d = [];
                 for (const pair in data.pairs) {
-                    d += createCardsFromPair(pair);
+                    var a = createCardsFromPair(pair);
+                    console.log(a);
+                    d += a;
                 }
                 console.log(d);
                 return d;
