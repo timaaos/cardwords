@@ -62,7 +62,7 @@
                 var d = [];
                 data.pairs.forEach((pair) => {
                     var a = createCardsFromPair(pair);
-                    d += a;
+                    d = d.concat(a);
                 });
                 return d;
             }
