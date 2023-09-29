@@ -27,7 +27,6 @@
         #pwapopup {
             position: absolute;
             top: 0px;
-            left: 0px;
             width: 100vw;
             height: fit-content;
         }
@@ -43,6 +42,7 @@
             <div id="cardcontent">
                 <h2 id="cardtitle">разочаровывать</h2><br>
                 <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="cardinput" />
+                <button id="cardbtn">проверить</button>
             </div>
         </div>
     </div>
@@ -90,9 +90,15 @@
                 "callback": function(){
                     gameData.currentIdx += 1;
                     showCard(gameData.cards[gameData.currentIdx]);
+                },
+                "buttonCallback": function() {
+                    gameData.callback();
                 }
             };
             gameData.callback();
+            document.getElementById("cardbtn").onclick = (event) => {
+                gameData.buttonCallback();
+            };
         }
         pwapopup();
         res();
